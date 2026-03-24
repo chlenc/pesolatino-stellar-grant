@@ -824,6 +824,142 @@
       display: inline-block;
     }
 
+    /* ═══ TEAM ═══ */
+    .team-section {
+      padding-top: 96px;
+    }
+    .team-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 24px;
+      margin-top: 56px;
+    }
+    .team-card {
+      position: relative;
+      background: linear-gradient(180deg, #ffffff 0%, #f7faff 100%);
+      border: 1px solid var(--gray-200);
+      border-radius: var(--radius-lg);
+      padding: 36px;
+      overflow: hidden;
+      transition: transform 0.3s, box-shadow 0.3s, border-color 0.3s;
+      box-shadow: 0 18px 48px rgba(3,11,29,0.05);
+    }
+    .team-card::before {
+      content: '';
+      position: absolute;
+      top: -80px;
+      right: -60px;
+      width: 220px;
+      height: 220px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(34,98,255,0.14) 0%, transparent 72%);
+      pointer-events: none;
+    }
+    .team-card:hover {
+      transform: translateY(-4px);
+      border-color: rgba(34,98,255,0.35);
+      box-shadow: 0 22px 56px rgba(3,11,29,0.08);
+    }
+    .team-profile {
+      display: grid;
+      grid-template-columns: 120px 1fr;
+      gap: 24px;
+      align-items: center;
+      position: relative;
+      z-index: 1;
+    }
+    .team-avatar {
+      width: 120px;
+      height: 120px;
+      border-radius: 32px;
+      object-fit: cover;
+      border: 1px solid rgba(34,98,255,0.12);
+      background: #eef4ff;
+      box-shadow: 0 10px 32px rgba(34,98,255,0.12);
+    }
+    .team-role {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 6px 14px;
+      border-radius: var(--radius-pill);
+      background: var(--blue-light);
+      color: var(--blue);
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      margin-bottom: 14px;
+    }
+    .team-name {
+      font-size: 1.625rem;
+      font-weight: 700;
+      letter-spacing: -0.03em;
+      line-height: 1.1;
+      margin-bottom: 8px;
+    }
+    .team-summary {
+      font-size: 0.9375rem;
+      line-height: 1.75;
+      color: var(--gray-600);
+      margin-top: 24px;
+      position: relative;
+      z-index: 1;
+    }
+    .team-highlights {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 20px;
+      position: relative;
+      z-index: 1;
+    }
+    .team-highlight {
+      display: inline-flex;
+      align-items: center;
+      padding: 8px 12px;
+      border-radius: var(--radius-pill);
+      background: var(--white);
+      border: 1px solid var(--gray-200);
+      color: var(--dark-text);
+      font-size: 0.75rem;
+      font-weight: 600;
+    }
+    .team-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 24px;
+      position: relative;
+      z-index: 1;
+    }
+    .team-links a {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 10px 16px;
+      border-radius: var(--radius-pill);
+      background: var(--navy);
+      color: var(--white);
+      text-decoration: none;
+      font-size: 0.8125rem;
+      font-weight: 600;
+      transition: transform 0.2s, box-shadow 0.2s, background 0.2s;
+    }
+    .team-links a.secondary {
+      background: var(--white);
+      color: var(--dark-text);
+      border: 1px solid var(--gray-200);
+    }
+    .team-links a:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 12px 28px rgba(5,16,40,0.14);
+    }
+    .team-links a.secondary:hover {
+      border-color: rgba(34,98,255,0.35);
+      color: var(--blue);
+    }
+
     @media (max-width: 768px) {
       section { padding: 80px 24px; }
       .section-dark .section-inner { padding: 0 24px; }
@@ -833,10 +969,15 @@
       .hero-content { grid-template-columns: 1fr; gap: 40px; }
       .stats-bar { grid-template-columns: 1fr 1fr; margin: -40px 24px 0; }
       .problem-grid, .stellar-grid, .model-grid, .kpi-charts,
-      .budget-grid, .gtm-grid, .market-grid { grid-template-columns: 1fr; }
+      .budget-grid, .gtm-grid, .market-grid, .team-grid { grid-template-columns: 1fr; }
       .solution-layout { grid-template-columns: 1fr; }
       .hero-actions { flex-direction: column; }
       .nav-links { display: none; }
+      .team-profile { grid-template-columns: 1fr; }
+      .team-avatar {
+        width: 104px;
+        height: 104px;
+      }
     }
   </style>
 </head>
@@ -850,6 +991,7 @@
       <a href="#solution">Solution</a>
       <a href="#stellar">Why Stellar</a>
       <a href="#model">Business Model</a>
+      <a href="#team">Team</a>
       <a href="#kpi">KPIs</a>
       <a href="#budget" class="nav-cta">Grant Request</a>
     </div>
@@ -1349,6 +1491,56 @@
           </tr>
         </tbody>
       </table>
+    </div>
+  </section>
+
+  <!-- TEAM -->
+  <section id="team" class="team-section">
+    <div class="section-tag fade-up">Team</div>
+    <h2 class="fade-up delay-1">The Team Behind PesoLatino</h2>
+    <p class="subtitle fade-up delay-2">Leadership with hands-on depth across product engineering, fintech compliance, and cross-border market execution.</p>
+
+    <div class="team-grid">
+      <article class="team-card fade-up">
+        <div class="team-profile">
+          <img class="team-avatar" src="assets/team/alexey-x.jpg" alt="Alexey Nagorny">
+          <div>
+            <div class="team-role">CTO</div>
+            <div class="team-name">Alexey Nagorny</div>
+            <p class="subtitle" style="max-width: 100%; margin: 0;">Blockchain and platform builder with deep experience in DeFi infrastructure, payment rails, and secure product delivery.</p>
+          </div>
+        </div>
+        <p class="team-summary">8+ years in software development spanning Waves Blockchain, DeFi products, and merchant integrations. Leads the technical architecture for compliant, scalable crypto-to-fiat infrastructure.</p>
+        <div class="team-highlights">
+          <span class="team-highlight">8+ years in software</span>
+          <span class="team-highlight">DeFi infrastructure</span>
+          <span class="team-highlight">Merchant integrations</span>
+        </div>
+        <div class="team-links">
+          <a href="https://x.com/defi_defiler" target="_blank" rel="noreferrer">X / Twitter</a>
+          <a href="https://www.linkedin.com/in/defi-defiler" target="_blank" rel="noreferrer" class="secondary">LinkedIn</a>
+        </div>
+      </article>
+
+      <article class="team-card fade-up delay-1">
+        <div class="team-profile">
+          <img class="team-avatar" src="assets/team/vlad-linkedin.jpg" alt="Vlad Gaon">
+          <div>
+            <div class="team-role">CEO</div>
+            <div class="team-name">Vlad Gaon</div>
+            <p class="subtitle" style="max-width: 100%; margin: 0;">Business and legal operator focused on building regulated fintech structures that can scale across Latin America.</p>
+          </div>
+        </div>
+        <p class="team-summary">15+ years across legal consulting, compliance, M&amp;A, and business development. Drives market expansion, institutional readiness, and the regulatory foundation required for PesoLatino's launch.</p>
+        <div class="team-highlights">
+          <span class="team-highlight">15+ years in legal &amp; M&amp;A</span>
+          <span class="team-highlight">Compliance strategy</span>
+          <span class="team-highlight">LATAM market entry</span>
+        </div>
+        <div class="team-links">
+          <a href="https://www.linkedin.com/in/vlad-gaon-6a7567234/" target="_blank" rel="noreferrer" class="secondary">LinkedIn</a>
+        </div>
+      </article>
     </div>
   </section>
 
